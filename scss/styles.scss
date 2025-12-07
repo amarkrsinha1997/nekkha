@@ -848,6 +848,11 @@ body {
       padding-left: $spacing-2xl;
     }
     
+    @include respond-below('sm') {
+      padding: $spacing-lg;
+      padding-top: $spacing-2xl;
+    }
+    
     .why-number {
       position: absolute;
       left: $spacing-lg;
@@ -861,6 +866,14 @@ body {
       @include respond-below('md') {
         font-size: 2rem;
         left: $spacing-md;
+      }
+      
+      @include respond-below('sm') {
+        position: relative;
+        left: 0;
+        top: 0;
+        display: block;
+        margin-bottom: $spacing-xs;
       }
     }
     

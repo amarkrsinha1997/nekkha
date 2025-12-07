@@ -296,6 +296,7 @@ class BackToTop {
 
 class AnimationObserver {
   constructor() {
+    this.animationStyleAdded = false;
     this.init();
   }
 
@@ -314,31 +315,58 @@ class AnimationObserver {
       });
     }, options);
 
-    // Observe elements
+    // Observe elements with proper grouping
     const animatedElements = document.querySelectorAll(`
+      .section-header,
       .feature-card,
       .timeline-item,
-      .why-card,
       .step,
-      .stat-card
+      .step-content,
+      .stat-card,
+      .faq-item,
+      .requirement-item,
+      .requirements,
+      .contact-button,
+      .contact-info,
+      .social-links,
+      .about-text,
+      .about-stats,
+      .hero-stats,
+      .hero-cta,
+      .hero-content,
+      .hero-visual
     `);
 
-    animatedElements.forEach((el) => {
+    animatedElements.forEach((el, index) => {
+      // Don't re-apply if already animated
+      if (el.classList.contains("animate-in")) return;
+
       el.style.opacity = "0";
       el.style.transform = "translateY(30px)";
-      el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+      el.style.transition = "opacity 0.2s ease-out, transform 0.3s ease-out";
+
+      // Stagger animation within same section (faster)
+      const delay = (index % 10) * 0.04;
+      el.style.transitionDelay = `${delay}s`;
       observer.observe(el);
     });
 
-    // Add animation class styles
-    const style = document.createElement("style");
-    style.textContent = `
-      .animate-in {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-      }
-    `;
-    document.head.appendChild(style);
+    // Add animation class styles only once
+    if (
+      !this.animationStyleAdded &&
+      !document.getElementById("animation-styles")
+    ) {
+      const style = document.createElement("style");
+      style.id = "animation-styles";
+      style.textContent = `
+        .animate-in {
+          opacity: 1 !important;
+          transform: translateY(0) !important;
+        }
+      `;
+      document.head.appendChild(style);
+      this.animationStyleAdded = true;
+    }
   }
 }
 
@@ -363,7 +391,7 @@ function initTimelineAnimations() {
   timelineItems.forEach((el) => {
     el.style.opacity = "0";
     el.style.transform = "translateY(30px)";
-    el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+    el.style.transition = "opacity 0.3s ease-out, transform 0.3s ease-out";
     observer.observe(el);
   });
 }
