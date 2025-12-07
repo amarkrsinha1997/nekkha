@@ -115,10 +115,10 @@ const CONTENT_CONFIG = {
     word: "Nekkha",
     script: "नेक्ख",
     language: "Pali",
-    meaning: "Gold",
-    era: "Time of the Buddha",
+    meaning: "Gold and Precious Treasures",
+    era: "Time of the Buddha (5th-4th century BCE)",
     description:
-      "In the time of the Buddha, gold was called Nekkha in Pali. Today, we honor this ancient wisdom by helping you grow your digital gold.",
+      "In ancient Pali, the sacred language of early Buddhism spoken during the time of the Buddha (5th-4th century BCE), Nekkha referred to gold and precious treasures. Pali, derived from Middle Indo-Aryan languages of the Magadha region (modern-day Bihar, India), was used to preserve the Buddha's teachings in the Tipiṭaka. Just as gold represented enduring wealth in that era, today we honor this ancient wisdom by helping you grow your digital gold through secure, transparent cryptocurrency deposits.",
   },
 
   // ===========================
