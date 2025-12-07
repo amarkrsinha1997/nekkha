@@ -1027,34 +1027,54 @@ body {
   }
   
   &-methods {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: $spacing-md;
     margin-bottom: $spacing-xl;
+    
+    // Tablet portrait and mobile: 1 column stacked
+    @include respond-below('md') {
+      grid-template-columns: 1fr;
+      gap: $spacing-sm;
+    }
+    
+    // Tablet landscape: keep 3 columns
+    @media (min-width: 768px) and (max-width: 1023px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-sm;
+    }
   }
   
   &-button {
     display: flex;
     align-items: center;
-    gap: $spacing-lg;
-    padding: $spacing-lg $spacing-xl;
+    gap: $spacing-sm;
+    padding: $spacing-xs $spacing-sm; // Made slimmer
     background: rgba($white, 0.03);
-    border: 1px solid rgba($white, 0.1);
-    border-radius: $radius-xl;
+    border: 2px solid transparent;
+    border-radius: 12px;
     text-decoration: none;
     transition: all $transition-base;
+    min-height: 60px; // Reduced from 70px
     
-    &:hover {
-      background: rgba($white, 0.05);
-      transform: translateX(8px);
+    @include respond-to('lg') {
+      padding: $spacing-sm $spacing-md; // Slimmer padding on desktop
+      min-height: 64px; // Reduced from 80px
+    }
+    
+    // Mobile: even slimmer
+    @include respond-below('sm') {
+      padding: $spacing-xs;
+      min-height: 56px;
     }
     
     &.whatsapp {
-      border-left: 4px solid #25D366;
+      border-color: #25D366;
       
       &:hover {
-        border-color: #25D366;
-        box-shadow: 0 0 20px rgba(37, 211, 102, 0.2);
+        background: rgba(37, 211, 102, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
       }
       
       .contact-icon {
@@ -1063,24 +1083,26 @@ body {
     }
     
     &.phone {
-      border-left: 4px solid $bright-blue;
+      border-color: $royal-blue;
       
       &:hover {
-        border-color: $bright-blue;
-        box-shadow: $shadow-glow-blue;
+        background: rgba($royal-blue, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($royal-blue, 0.2);
       }
       
       .contact-icon {
-        color: $bright-blue;
+        color: $royal-blue;
       }
     }
     
     &.email {
-      border-left: 4px solid $bright-gold;
+      border-color: $bright-gold;
       
       &:hover {
-        border-color: $bright-gold;
-        box-shadow: $shadow-glow-gold;
+        background: rgba($bright-gold, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($bright-gold, 0.2);
       }
       
       .contact-icon {
@@ -1090,25 +1112,37 @@ body {
   }
   
   &-icon {
-    width: 48px;
-    height: 48px;
+    font-size: 2rem;
     flex-shrink: 0;
+    
+    @include respond-below('md') {
+      font-size: 1.75rem;
+    }
   }
   
   &-button-content {
     @include flex-column;
-    gap: calc($spacing-xs / 2);
+    gap: 0.25rem;
+    text-align: left;
   }
   
   &-button-label {
     font-weight: $font-weight-semibold;
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: $white;
+    
+    @include respond-below('md') {
+      font-size: 0.9rem;
+    }
   }
   
   &-button-text {
-    @include body-regular;
+    font-size: 0.875rem;
     color: $text-secondary;
+    
+    @include respond-below('md') {
+      font-size: 0.8rem;
+    }
   }
   
   .social-links {
