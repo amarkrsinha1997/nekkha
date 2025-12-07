@@ -26,28 +26,13 @@ const CONTENT_CONFIG = {
   // FINANCIAL RATES & TERMS
   // ===========================
   rates: {
-    // Base interest rate (without referral)
+    // Base interest rate
     baseInterestRate: 12, // 12% annual interest
-
-    // Referral structure: The 12% is split as 11% to user + 1% to referrer
-    referralBonus: 1, // 1% goes to referrer (1/12 of the base rate)
-    referralBonusPercentage: 8.33, // 1% is 8.33% of 12% (1/12 = 8.33%)
-
-    // What referred users get
-    referredUserRate: 11, // 11% annual interest (11/12 of base rate)
-    referrerGetsFromBase: 1, // Referrer gets 1% from the base 12% rate
-
-    // Total potential earnings
-    maxTotalRate: 12, // Maximum 12% if you have no referrer
-    referredUserTotalRate: 11, // 11% if you were referred by someone
 
     // Display strings (for easy updates)
     display: {
-      baseRate: "12%",
-      referredRate: "11%",
-      referralBonus: "1%",
-      referralBonusDescription: "1% of the 12% base rate (1/12)",
-      maxRate: "12%",
+      baseRate: "Up to 12%",
+      maxRate: "Up to 12%",
     },
   },
 
@@ -105,7 +90,6 @@ const CONTENT_CONFIG = {
     signup: "https://app.nekkha.com/signup", // UPDATE: Your webapp signup URL
     dashboard: "https://app.nekkha.com/dashboard",
     deposits: "https://app.nekkha.com/deposits",
-    referrals: "https://app.nekkha.com/referrals",
   },
 
   // ===========================
@@ -130,22 +114,22 @@ const CONTENT_CONFIG = {
       main: "on Your Nexa Deposits",
     },
     subtitle:
-      "Deposit Nexa cryptocurrency and earn competitive fixed deposit rates. Sign up directly for 12%, or use a referral code for 11% while your referrer gets 1% (the 12% is split: 11% to you + 1% to referrer). Secure, transparent, and powered by DeFi technology.",
+      "Deposit Nexa cryptocurrency and earn competitive up to 12% annual fixed deposit rates. Secure, transparent, and powered by DeFi technology.",
     stats: [
       {
-        number: "12%",
-        label: "Direct Signup Rate",
-        description: "Annual interest if you sign up without a referral code",
+        number: "Up to 12%",
+        label: "Annual Interest",
+        description: "Consistent returns on your deposits",
       },
       {
-        number: "11%",
-        label: "With Referral Code",
-        description: "Annual interest if you use someone's referral code",
+        number: "1 Crore",
+        label: "Minimum Deposit",
+        description: "Start earning with 1 crore Nexa",
       },
       {
-        number: "+1%",
-        label: "Referrer Bonus",
-        description: "Extra earnings when you refer others",
+        number: "30 Days",
+        label: "Lock-in Period",
+        description: "Minimum commitment period",
       },
     ],
     cta: {
@@ -166,11 +150,11 @@ const CONTENT_CONFIG = {
         "Earn up to 12% annual interest on your Nexa deposits. Higher returns than traditional banking with the security of blockchain technology.",
     },
     {
-      id: "referral-program",
+      id: "consistent-returns",
       icon: "users",
-      title: "Referral Rewards",
+      title: "Consistent Returns",
       description:
-        "Earn up to 12% on your deposits. If you sign up without a referral code, you get the full 12%. With a referral code, the 12% is split: you get 11% and your referrer gets 1% (1/12 of the base rate). When you refer others, you earn 1% from each of their deposits.",
+        "Earn up to 12% annual interest on your Nexa deposits. Predictable, reliable returns with daily compounding and monthly payouts for maximum growth.",
     },
     {
       id: "secure-defi",
@@ -207,12 +191,6 @@ const CONTENT_CONFIG = {
   // ===========================
   faq: [
     {
-      id: "how-referral-works",
-      question: "How does the referral system work?",
-      answer:
-        "Simple breakdown: Sign up directly = earn 12% on your deposits. Sign up with someone's referral code = the 12% is split: you earn 11% (11/12), they earn 1% (1/12). When you refer others = they earn 11%, you earn 1% of the base rate on their deposit. The 1% you earn comes from the platform's 12% rate being divided, not from the referred user's earnings. This is passive income on top of your own deposit interest.",
-    },
-    {
       id: "minimum-deposit",
       question: "What is the minimum deposit amount?",
       answer:
@@ -222,7 +200,7 @@ const CONTENT_CONFIG = {
       id: "interest-calculation",
       question: "How is interest calculated?",
       answer:
-        "Interest is calculated daily and compounded on your deposit. Your rate: 12% annually if you signed up directly, or 11% annually if you used a referral code. Referral bonus: If someone signs up with your code, you earn 1% annually from the base 12% rate on their deposit (this is 1/12 of the total interest paid on their deposit). All interest accumulates and pays out monthly.",
+        "Interest is calculated daily and compounded on your deposit at a rate of up to 12% annually. All interest accumulates and pays out monthly, giving you consistent and predictable returns on your investment.",
     },
     {
       id: "withdrawal-process",
@@ -252,13 +230,13 @@ const CONTENT_CONFIG = {
       step: 2,
       title: "Deposit Nexa",
       description:
-        "Transfer minimum 1 crore Nexa to your Nekkha wallet. Optional: Use a referral code - you'll earn 11% and your referrer gets 1%. Without a code, you earn the full 12%.",
+        "Transfer minimum 1 crore Nexa to your Nekkha wallet. Your deposits are secured by blockchain technology and smart contracts.",
     },
     {
       step: 3,
       title: "Earn Interest",
       description:
-        "Your deposits earn 12% annually. If you used someone's referral code, you get 11%, they get 1%. Share your referral link to earn 1% from the base rate on deposits made by anyone who signs up with your code.",
+        "Your deposits earn up to 12% annually with daily compounding. Watch your wealth grow with consistent, reliable returns paid out monthly.",
     },
   ],
 
@@ -267,7 +245,7 @@ const CONTENT_CONFIG = {
   // ===========================
   footerStats: [
     {
-      number: "12%",
+      number: "Up to 12%",
       label: "Annual Interest",
     },
     {
