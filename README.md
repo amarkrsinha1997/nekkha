@@ -1,6 +1,6 @@
-# Nekka.com
+# Nekkha.com
 
-Modern landing page for Nekka.com - A decentralized finance platform offering fixed deposit services for Nexa cryptocurrency.
+Modern landing page for Nekkha.com - A decentralized finance platform offering fixed deposit services for Nexa cryptocurrency.
 
 ## 🚀 Quick Start
 
@@ -49,7 +49,7 @@ npm run seo          # Regenerate both sitemap and robots.txt
 ## 📁 Project Structure
 
 ```
-Nekka.com/
+Nekkha.com/
 ├── index.html              # Main landing page
 ├── css/styles.css          # Compiled CSS
 ├── js/main.js             # JavaScript
@@ -75,7 +75,7 @@ Nekka.com/
 
 See [ACTION_ITEMS.md](docs/ACTION_ITEMS.md) for detailed checklist:
 
-- [ ] Add Nekka logo
+- [ ] Add Nekkha logo
 - [ ] Update webapp URLs
 - [ ] Add timeline images
 - [ ] Configure social media links
@@ -93,7 +93,7 @@ This site is part of the Nexa ecosystem:
 
 ## 📄 License
 
-Copyright © 2025 Nekka.com. All rights reserved.
+Copyright © 2025 Nekkha.com. All rights reserved.
 
 ---
 

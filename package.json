@@ -1,7 +1,7 @@
 {
-  "name": "nekka-landing-page",
+  "name": "Nekkha-landing-page",
   "version": "1.0.0",
-  "description": "Modern landing page for Nekka.com - Nexa Fixed Deposit DeFi Platform",
+  "description": "Modern landing page for Nekkha.com - Nexa Fixed Deposit DeFi Platform",
   "main": "index.html",
   "scripts": {
     "sass": "sass scss/styles.scss css/styles.css --watch",
@@ -16,7 +16,7 @@
     "test": "echo \"No tests specified\" && exit 0"
   },
   "keywords": [
-    "nekka",
+    "Nekkha",
     "nexa",
     "crypto",
     "defi",
@@ -24,7 +24,7 @@
     "cryptocurrency",
     "landing-page"
   ],
-  "author": "Nekka.com",
+  "author": "Nekkha.com",
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
@@ -40,6 +40,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nekka/nekka.com"
+    "url": "https://github.com/Nekkha/Nekkha.com"
   }
 }

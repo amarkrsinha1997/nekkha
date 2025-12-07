@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Sitemap Generator for Nekka.com
+# Sitemap Generator for Nekkha.com
 # Run this script to regenerate sitemap.xml
 
-DOMAIN="https://nekka.com"
+DOMAIN="https://Nekkha.com"
 OUTPUT_FILE="sitemap.xml"
 CURRENT_DATE=$(date +%Y-%m-%d)
 
@@ -11,49 +11,49 @@ cat > $OUTPUT_FILE << 'EOF'
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://nekka.com/</loc>
+        <loc>https://Nekkha.com/</loc>
         <lastmod>CURRENT_DATE_PLACEHOLDER</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://nekka.com/#features</loc>
+        <loc>https://Nekkha.com/#features</loc>
         <lastmod>CURRENT_DATE_PLACEHOLDER</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://nekka.com/#evolution</loc>
+        <loc>https://Nekkha.com/#evolution</loc>
         <lastmod>CURRENT_DATE_PLACEHOLDER</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nekka.com/#why-nekka</loc>
+        <loc>https://Nekkha.com/#why-Nekkha</loc>
         <lastmod>CURRENT_DATE_PLACEHOLDER</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://nekka.com/#how-it-works</loc>
+        <loc>https://Nekkha.com/#how-it-works</loc>
         <lastmod>CURRENT_DATE_PLACEHOLDER</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://nekka.com/#faq</loc>
+        <loc>https://Nekkha.com/#faq</loc>
         <lastmod>CURRENT_DATE_PLACEHOLDER</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nekka.com/#contact</loc>
+        <loc>https://Nekkha.com/#contact</loc>
         <lastmod>CURRENT_DATE_PLACEHOLDER</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://nekka.com/#about</loc>
+        <loc>https://Nekkha.com/#about</loc>
         <lastmod>CURRENT_DATE_PLACEHOLDER</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>

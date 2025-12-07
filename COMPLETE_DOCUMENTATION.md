@@ -26,26 +26,26 @@
 
 # Quick Start Guide
 
-Welcome! Your modern landing page for Nekka.com is ready. Here's everything you need to know to get started.
+Welcome! Your modern landing page for Nekkha.com is ready. Here's everything you need to know to get started.
 
 ## 🚀 Quick Start
 
 ### Option 1: View Immediately (Simplest)
 ```bash
-cd /Users/apple/Documents/Nekka/Nekka.com
+cd /Users/apple/Documents/Nekkha/Nekkha.com
 open index.html
 ```
 
 ### Option 2: Run Local Server (Recommended)
 ```bash
-cd /Users/apple/Documents/Nekka/Nekka.com
+cd /Users/apple/Documents/Nekkha/Nekkha.com
 npm run serve
 ```
 Then open http://localhost:3000
 
 ### Option 3: Development Mode (For making changes)
 ```bash
-cd /Users/apple/Documents/Nekka/Nekka.com
+cd /Users/apple/Documents/Nekkha/Nekkha.com
 npm run dev
 ```
 This starts both the SCSS compiler (watches for changes) and a local server.
@@ -53,7 +53,7 @@ This starts both the SCSS compiler (watches for changes) and a local server.
 ## 📁 What's Been Created
 
 ```
-Nekka.com/
+Nekkha.com/
 ├── index.html                 ✅ Complete landing page
 ├── COMPLETE_DOCUMENTATION.md ✅ This file - ALL docs in one place
 ├── README.md                 ✅ Basic project info
@@ -90,7 +90,7 @@ Nekka.com/
 - ✅ Hero section with stats
 - ✅ Features section (6 feature cards)
 - ✅ Evolution timeline (4 stages with animations)
-- ✅ Why Nekka section (6 benefit cards)
+- ✅ Why Nekkha section (6 benefit cards)
 - ✅ How It Works (3-step process)
 - ✅ FAQ accordion (8 questions)
 - ✅ Contact buttons with Font Awesome icons
@@ -966,10 +966,10 @@ webapp: {
 **In `js/content.config.js`:**
 ```javascript
 social: {
-  twitter: "https://twitter.com/nekkacom",      // ← Update
-  linkedin: "https://linkedin.com/company/nekka", // ← Update
-  telegram: "https://t.me/nekkaofficial",        // ← Update
-  discord: "https://discord.gg/nekka",           // ← Update
+  twitter: "https://twitter.com/Nekkhacom",      // ← Update
+  linkedin: "https://linkedin.com/company/Nekkha", // ← Update
+  telegram: "https://t.me/Nekkhaofficial",        // ← Update
+  discord: "https://discord.gg/Nekkha",           // ← Update
 }
 ```
 
@@ -1140,7 +1140,7 @@ $breakpoint-2xl: 1440px; // Large desktop
 # File Structure
 
 ```
-/Nekka.com/
+/Nekkha.com/
 ├── index.html                      # Main page
 ├── COMPLETE_DOCUMENTATION.md       # ← ALL documentation
 ├── IMPLEMENTATION_GUIDE.md         # ← How to use i18n system

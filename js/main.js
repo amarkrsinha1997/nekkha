@@ -515,8 +515,8 @@ class WhySlider {
   constructor() {
     this.track = document.getElementById("whyTrack");
     this.dotsContainer = document.getElementById("whyDots");
-    this.prevBtn = document.querySelector(".why-nekka .slider-btn.prev");
-    this.nextBtn = document.querySelector(".why-nekka .slider-btn.next");
+    this.prevBtn = document.querySelector(".why-Nekkha .slider-btn.prev");
+    this.nextBtn = document.querySelector(".why-Nekkha .slider-btn.next");
     this.sliderWrapper = document.querySelector(".why-slider-wrapper");
 
     if (!this.track) return;
