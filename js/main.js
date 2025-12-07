@@ -427,9 +427,13 @@ document.addEventListener("DOMContentLoaded", () => {
   new BackToTop();
   new AnimationObserver();
   new Parallax();
+  new WhySlider();
 
   // Lazy load images
   lazyLoadImages();
+
+  // Load dynamic content from config
+  loadDynamicContent();
 
   // Log ready state
   console.log(
@@ -449,6 +453,182 @@ if ("serviceWorker" in navigator) {
     //   .then(reg => console.log('Service Worker registered'))
     //   .catch(err => console.log('Service Worker registration failed'));
   });
+}
+
+// ===========================
+// Dynamic Content Loading
+// ===========================
+
+function loadDynamicContent() {
+  if (typeof CONTENT_CONFIG === "undefined") {
+    console.warn("CONTENT_CONFIG not loaded");
+    return;
+  }
+
+  // Load Evolution Section
+  loadEvolutionSection();
+}
+
+function loadEvolutionSection() {
+  const { evolution } = CONTENT_CONFIG;
+
+  // Update section title and subtitle
+  const sectionTitle = document.querySelector("#evolution .section-title");
+  const sectionSubtitle = document.querySelector(
+    "#evolution .section-subtitle"
+  );
+
+  if (sectionTitle) sectionTitle.textContent = evolution.sectionTitle;
+  if (sectionSubtitle) sectionSubtitle.textContent = evolution.sectionSubtitle;
+
+  // Load timeline items
+  const timelineContainer = document.querySelector(".timeline");
+  if (!timelineContainer) return;
+
+  timelineContainer.innerHTML = evolution.timeline
+    .map((item, index) => {
+      const isReverse = index % 2 === 1 ? "reverse" : "";
+      return `
+      <div class="timeline-item">
+        <div class="timeline-content ${isReverse}">
+          <div class="timeline-image">
+            <img src="${item.image}" alt="${item.imageAlt}" loading="lazy">
+            <div class="image-placeholder">${item.title}</div>
+          </div>
+          <div class="timeline-text">
+            <span class="timeline-year">${item.era}</span>
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
+          </div>
+        </div>
+      </div>
+    `;
+    })
+    .join("");
+}
+
+// ===========================
+// Why Nekkha Slider
+// ===========================
+
+class WhySlider {
+  constructor() {
+    this.track = document.getElementById("whyTrack");
+    this.dotsContainer = document.getElementById("whyDots");
+    this.prevBtn = document.querySelector(".why-nekka .slider-btn.prev");
+    this.nextBtn = document.querySelector(".why-nekka .slider-btn.next");
+
+    if (!this.track) return;
+
+    this.cards = Array.from(this.track.children);
+    this.currentIndex = 0;
+    this.cardsPerView = window.innerWidth >= 1024 ? 2 : 1;
+    this.totalSlides = Math.ceil(this.cards.length / this.cardsPerView);
+
+    this.init();
+    this.setupEventListeners();
+  }
+
+  init() {
+    this.createDots();
+    this.updateSlider();
+
+    window.addEventListener("resize", () => {
+      const newCardsPerView = window.innerWidth >= 1024 ? 2 : 1;
+      if (newCardsPerView !== this.cardsPerView) {
+        this.cardsPerView = newCardsPerView;
+        this.totalSlides = Math.ceil(this.cards.length / this.cardsPerView);
+        this.currentIndex = Math.min(this.currentIndex, this.totalSlides - 1);
+        this.createDots();
+        this.updateSlider();
+      }
+    });
+  }
+
+  createDots() {
+    this.dotsContainer.innerHTML = "";
+    for (let i = 0; i < this.totalSlides; i++) {
+      const dot = document.createElement("div");
+      dot.className = `dot ${i === this.currentIndex ? "active" : ""}`;
+      dot.addEventListener("click", () => this.goToSlide(i));
+      this.dotsContainer.appendChild(dot);
+    }
+  }
+
+  setupEventListeners() {
+    this.prevBtn?.addEventListener("click", () => this.prev());
+    this.nextBtn?.addEventListener("click", () => this.next());
+
+    // Touch/swipe support
+    let startX = 0;
+    let isDragging = false;
+
+    this.track.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    });
+
+    this.track.addEventListener("touchmove", (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+    });
+
+    this.track.addEventListener("touchend", (e) => {
+      if (!isDragging) return;
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          this.next();
+        } else {
+          this.prev();
+        }
+      }
+      isDragging = false;
+    });
+  }
+
+  updateSlider() {
+    const cardWidth = this.cards[0].offsetWidth;
+    const gap = 24; // $spacing-lg
+    const offset = -(this.currentIndex * (cardWidth + gap) * this.cardsPerView);
+
+    this.track.style.transform = `translateX(${offset}px)`;
+
+    // Update dots
+    const dots = this.dotsContainer.querySelectorAll(".dot");
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === this.currentIndex);
+    });
+
+    // Update button states
+    if (this.prevBtn) {
+      this.prevBtn.disabled = this.currentIndex === 0;
+    }
+    if (this.nextBtn) {
+      this.nextBtn.disabled = this.currentIndex === this.totalSlides - 1;
+    }
+  }
+
+  goToSlide(index) {
+    this.currentIndex = Math.max(0, Math.min(index, this.totalSlides - 1));
+    this.updateSlider();
+  }
+
+  next() {
+    if (this.currentIndex < this.totalSlides - 1) {
+      this.currentIndex++;
+      this.updateSlider();
+    }
+  }
+
+  prev() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.updateSlider();
+    }
+  }
 }
 
 // ===========================

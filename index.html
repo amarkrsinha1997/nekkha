@@ -164,7 +164,7 @@
             </div>
             
             <!-- Rate Clarity Box -->
-            <div class="rate-clarity-box" style="background: linear-gradient(135deg, rgba(26, 76, 142, 0.1), rgba(51, 116, 203, 0.1)); border: 2px solid #3374cb; border-radius: 12px; padding: 2rem; margin-bottom: 3rem; text-align: center;">
+            <div class="rate-clarity-box" style="background: linear-gradient(135deg, rgba(5, 7, 10, 0.6), rgba(5, 7, 10, 0.8)); border: 2px solid rgba(0, 0, 0, 0.8); border-radius: 12px; padding: 2rem; margin-bottom: 3rem; text-align: center;">
                 <h3 style="color: #efc426; margin-bottom: 1.5rem; font-size: 1.5rem;">Simple Interest Breakdown</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
                     <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px;">
@@ -345,43 +345,61 @@
                 <p class="section-subtitle">The future of wealth preservation and growth</p>
             </div>
             
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-number">01</div>
-                    <h3>Hedge Against Inflation</h3>
-                    <p>Traditional savings accounts barely keep up with inflation. Nexa FDs offer competitive returns that help your wealth grow, not shrink.</p>
+            <div class="why-slider-wrapper">
+                <button class="slider-btn prev" aria-label="Previous slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <div class="why-slider">
+                    <div class="why-track" id="whyTrack">
+                        <div class="why-card">
+                            <div class="why-number">01</div>
+                            <h3>Hedge Against Inflation</h3>
+                            <p>Traditional savings accounts barely keep up with inflation. Nexa FDs offer competitive returns that help your wealth grow, not shrink.</p>
+                        </div>
+                        
+                        <div class="why-card">
+                            <div class="why-number">02</div>
+                            <h3>True Ownership</h3>
+                            <p>Your crypto, your keys, your control. Unlike banks that use your deposits for loans, you maintain true ownership of your Nexa.</p>
+                        </div>
+                        
+                        <div class="why-card">
+                            <div class="why-number">03</div>
+                            <h3>Global Accessibility</h3>
+                            <p>No geographical barriers, no minimum net worth requirements. Anyone with Nexa can participate in wealth building, anywhere in the world.</p>
+                        </div>
+                        
+                        <div class="why-card">
+                            <div class="why-number">04</div>
+                            <h3>Transparent Returns</h3>
+                            <p>Blockchain technology ensures complete transparency. Track your earnings in real-time, verify transactions, and see exactly where your returns come from.</p>
+                        </div>
+                        
+                        <div class="why-card">
+                            <div class="why-number">05</div>
+                            <h3>No Middlemen</h3>
+                            <p>DeFi eliminates unnecessary intermediaries. Lower costs mean higher returns for you. The future of finance is direct and decentralized.</p>
+                        </div>
+                        
+                        <div class="why-card">
+                            <div class="why-number">06</div>
+                            <h3>24/7 Availability</h3>
+                            <p>Unlike traditional banks with business hours, crypto markets never sleep. Access your account, monitor performance, and plan your finances anytime.</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="why-card">
-                    <div class="why-number">02</div>
-                    <h3>True Ownership</h3>
-                    <p>Your crypto, your keys, your control. Unlike banks that use your deposits for loans, you maintain true ownership of your Nexa.</p>
-                </div>
-                
-                <div class="why-card">
-                    <div class="why-number">03</div>
-                    <h3>Global Accessibility</h3>
-                    <p>No geographical barriers, no minimum net worth requirements. Anyone with Nexa can participate in wealth building, anywhere in the world.</p>
-                </div>
-                
-                <div class="why-card">
-                    <div class="why-number">04</div>
-                    <h3>Transparent Returns</h3>
-                    <p>Blockchain technology ensures complete transparency. Track your earnings in real-time, verify transactions, and see exactly where your returns come from.</p>
-                </div>
-                
-                <div class="why-card">
-                    <div class="why-number">05</div>
-                    <h3>No Middlemen</h3>
-                    <p>DeFi eliminates unnecessary intermediaries. Lower costs mean higher returns for you. The future of finance is direct and decentralized.</p>
-                </div>
-                
-                <div class="why-card">
-                    <div class="why-number">06</div>
-                    <h3>24/7 Availability</h3>
-                    <p>Unlike traditional banks with business hours, crypto markets never sleep. Access your account, monitor performance, and plan your finances anytime.</p>
-                </div>
+                <button class="slider-btn next" aria-label="Next slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
+            
+            <div class="slider-dots" id="whyDots"></div>
         </div>
     </section>
     

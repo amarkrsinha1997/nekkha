@@ -353,6 +353,34 @@ Also update in HTML:
 
 ## 📝 How to Apply Changes
 
+### Evolution Timeline Content
+
+**The evolution timeline is now loaded dynamically from `content.config.js`!**
+
+1. Edit `js/content.config.js` lines 280-330 (evolution section)
+2. Update any timeline item (era, title, description)
+3. Save file
+4. Refresh browser - changes appear immediately!
+
+**Example:**
+```javascript
+// js/content.config.js
+evolution: {
+  sectionTitle: "The Evolution of Fixed Deposits", // ← Edit this
+  sectionSubtitle: "From ancient barter...", // ← Or this
+  timeline: [
+    {
+      era: "Ancient Era", // ← Edit timeline content
+      title: "Barter Trading",
+      description: "The earliest form...",
+      // ...
+    }
+  ]
+}
+```
+
+### Other Content Updates
+
 1. Edit `js/content.config.js`
 2. Save file
 3. Refresh browser
@@ -1133,7 +1161,29 @@ $breakpoint-2xl: 1440px; // Large desktop
 
 ## December 7, 2025 - Latest Changes
 
-### 1. Content Management System Complete ✅
+### 1. Why Nekkha Section Now a Slider ✅
+- **Converted static grid to responsive slider**
+- Desktop: Shows 2 cards at a time
+- Mobile/Tablet: Shows 1 card at a time
+- Features:
+  - Previous/Next navigation buttons
+  - Dot indicators for slide position
+  - Touch/swipe support on mobile
+  - Smooth transitions
+  - Auto-disables buttons at start/end
+
+### 2. Evolution Timeline Now Dynamic ✅
+- **Timeline content loads from `content.config.js`**
+- No more hardcoded text in HTML
+- Update timeline by editing config file only
+- Fixed timeline-year visibility (now shows above dots)
+
+### 2. Timeline Year Visibility Fixed ✅
+- Added `z-index: 2` to timeline years
+- Era labels now visible above timeline dots
+- Professional appearance maintained
+
+### 3. Content Management System Complete ✅
 - **ALL website content** moved to `js/content.config.js`:
   - Features section (6 cards)
   - Evolution timeline (4 eras)

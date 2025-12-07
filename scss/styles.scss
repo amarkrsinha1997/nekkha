@@ -240,9 +240,7 @@ body {
     .nav-button {
       margin-left: $spacing-xs;
       
-      a {
-        padding: 0;
-        
+      a {        
         &::after {
           display: none;
         }
@@ -276,7 +274,7 @@ body {
       font-weight: $font-weight-medium;
       transition: color $transition-fast;
       position: relative;
-      padding: $spacing-xs 0;
+      padding: $spacing-xs $spacing-xs;
       
       &::after {
         content: '';
@@ -689,7 +687,7 @@ body {
       &::before {
         content: '';
         position: absolute;
-        top: 10px;
+        top: 5px;
         width: 16px;
         height: 16px;
         background: $gradient-gold;
@@ -727,6 +725,12 @@ body {
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: $spacing-xs;
+      position: relative;
+      z-index: 2;
+      
+      @include respond-above('md') {
+        margin-left: 1rem;
+      }
     }
     
     h3 {
@@ -752,13 +756,71 @@ body {
     padding: $section-padding-mobile 0;
   }
   
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: $spacing-lg;
+  .why-slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
     
-    @include respond-below('sm') {
-      grid-template-columns: 1fr;
+    @include respond-below('md') {
+      gap: $spacing-sm;
+    }
+  }
+  
+  .slider-btn {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    @include flex-center;
+    background: rgba($white, 0.05);
+    border: 1px solid rgba($white, 0.1);
+    border-radius: 50%;
+    color: $white;
+    cursor: pointer;
+    transition: all $transition-base;
+    z-index: 2;
+    
+    &:hover {
+      background: rgba($bright-blue, 0.2);
+      border-color: $bright-blue;
+      transform: scale(1.1);
+    }
+    
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      &:hover {
+        transform: none;
+        background: rgba($white, 0.05);
+        border-color: rgba($white, 0.1);
+      }
+    }
+    
+    @include respond-below('md') {
+      width: 40px;
+      height: 40px;
+      
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  
+  .why-slider {
+    flex: 1;
+    overflow: hidden;
+    border-radius: $radius-lg;
+  }
+  
+  .why-track {
+    display: flex;
+    gap: $spacing-lg;
+    transition: transform 0.5s ease-in-out;
+    
+    @include respond-below('md') {
+      gap: $spacing-md;
     }
   }
   
@@ -766,6 +828,12 @@ body {
     @include card;
     position: relative;
     padding-left: $spacing-3xl;
+    flex: 0 0 calc(50% - #{$spacing-lg} / 2);
+    
+    @include respond-below('lg') {
+      flex: 0 0 100%;
+      padding-left: $spacing-2xl;
+    }
     
     .why-number {
       position: absolute;
@@ -776,6 +844,11 @@ body {
       font-weight: $font-weight-extrabold;
       @include gradient-text;
       opacity: 0.5;
+      
+      @include respond-below('md') {
+        font-size: 2rem;
+        left: $spacing-md;
+      }
     }
     
     h3 {
@@ -786,6 +859,32 @@ body {
     p {
       @include body-regular;
       color: $text-secondary;
+    }
+  }
+  
+  .slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-sm;
+    margin-top: $spacing-lg;
+    
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba($white, 0.2);
+      cursor: pointer;
+      transition: all $transition-base;
+      
+      &.active {
+        background: $bright-gold;
+        width: 30px;
+        border-radius: 5px;
+      }
+      
+      &:hover {
+        background: rgba($bright-gold, 0.5);
+      }
     }
   }
 }
