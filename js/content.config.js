@@ -29,13 +29,13 @@ const CONTENT_CONFIG = {
     // Base interest rate (without referral)
     baseInterestRate: 12, // 12% annual interest
 
-    // Referral structure
-    referralBonus: 1, // 1% of the base rate (12% × 1% = 0.12% total)
-    referralBonusPercentage: 8.33, // 1% is 8.33% of 12% (for display: "1% of 12%")
+    // Referral structure: The 12% is split as 11% to user + 1% to referrer
+    referralBonus: 1, // 1% goes to referrer (1/12 of the base rate)
+    referralBonusPercentage: 8.33, // 1% is 8.33% of 12% (1/12 = 8.33%)
 
     // What referred users get
-    referredUserRate: 11, // 11% annual interest (12% - 1%)
-    referrerGetsFromReferred: 1, // Referrer gets 1% of the referred user's 11%
+    referredUserRate: 11, // 11% annual interest (11/12 of base rate)
+    referrerGetsFromBase: 1, // Referrer gets 1% from the base 12% rate
 
     // Total potential earnings
     maxTotalRate: 12, // Maximum 12% if you have no referrer
@@ -46,7 +46,7 @@ const CONTENT_CONFIG = {
       baseRate: "12%",
       referredRate: "11%",
       referralBonus: "1%",
-      referralBonusDescription: "1% of 12%",
+      referralBonusDescription: "1% of the 12% base rate (1/12)",
       maxRate: "12%",
     },
   },
@@ -130,7 +130,7 @@ const CONTENT_CONFIG = {
       main: "on Your Nexa Deposits",
     },
     subtitle:
-      "Deposit Nexa cryptocurrency and earn competitive fixed deposit rates. Sign up directly for 12%, or use a referral code for 11% (your referrer gets 1% bonus). Secure, transparent, and powered by DeFi technology.",
+      "Deposit Nexa cryptocurrency and earn competitive fixed deposit rates. Sign up directly for 12%, or use a referral code for 11% while your referrer gets 1% (the 12% is split: 11% to you + 1% to referrer). Secure, transparent, and powered by DeFi technology.",
     stats: [
       {
         number: "12%",
@@ -170,7 +170,7 @@ const CONTENT_CONFIG = {
       icon: "users",
       title: "Referral Rewards",
       description:
-        "Earn up to 12% on your deposits. If you sign up without a referral code, you get the full 12%. If someone refers you, you get 11% and they earn a 1% bonus from your earnings. Refer others to earn 1% bonus from their deposits too.",
+        "Earn up to 12% on your deposits. If you sign up without a referral code, you get the full 12%. With a referral code, the 12% is split: you get 11% and your referrer gets 1% (1/12 of the base rate). When you refer others, you earn 1% from each of their deposits.",
     },
     {
       id: "secure-defi",
@@ -210,7 +210,7 @@ const CONTENT_CONFIG = {
       id: "how-referral-works",
       question: "How does the referral system work?",
       answer:
-        "Simple breakdown: Sign up directly = earn 12% on your deposits. Sign up with someone's referral code = you earn 11%, they earn 1% bonus from your earnings. When you refer others with your code = they earn 11%, you earn 1% bonus from their earnings. The 1% bonus is passive income that you earn on top of your own deposit interest.",
+        "Simple breakdown: Sign up directly = earn 12% on your deposits. Sign up with someone's referral code = the 12% is split: you earn 11% (11/12), they earn 1% (1/12). When you refer others = they earn 11%, you earn 1% of the base rate on their deposit. The 1% you earn comes from the platform's 12% rate being divided, not from the referred user's earnings. This is passive income on top of your own deposit interest.",
     },
     {
       id: "minimum-deposit",
@@ -222,7 +222,7 @@ const CONTENT_CONFIG = {
       id: "interest-calculation",
       question: "How is interest calculated?",
       answer:
-        "Interest is calculated daily and compounded on your deposit. Your rate: 12% annually if you signed up directly, or 11% annually if you used a referral code. Referral bonus: If someone signs up with your code, you earn an additional 1% annually from their deposit earnings. All interest accumulates and pays out monthly.",
+        "Interest is calculated daily and compounded on your deposit. Your rate: 12% annually if you signed up directly, or 11% annually if you used a referral code. Referral bonus: If someone signs up with your code, you earn 1% annually from the base 12% rate on their deposit (this is 1/12 of the total interest paid on their deposit). All interest accumulates and pays out monthly.",
     },
     {
       id: "withdrawal-process",
@@ -252,13 +252,13 @@ const CONTENT_CONFIG = {
       step: 2,
       title: "Deposit Nexa",
       description:
-        "Transfer minimum 1 crore Nexa to your Nekkha wallet. Optional: Use a referral code to earn 11% (the referrer gets 1% bonus). Without a code, you earn the full 12%.",
+        "Transfer minimum 1 crore Nexa to your Nekkha wallet. Optional: Use a referral code - you'll earn 11% and your referrer gets 1%. Without a code, you earn the full 12%.",
     },
     {
       step: 3,
       title: "Earn Interest",
       description:
-        "Your deposits earn 12% annually. If you used someone's referral code, you earn 11% (they get 1% bonus). Share your referral link to earn 1% bonus from anyone who signs up with your code.",
+        "Your deposits earn 12% annually. If you used someone's referral code, you get 11%, they get 1%. Share your referral link to earn 1% from the base rate on deposits made by anyone who signs up with your code.",
     },
   ],
 

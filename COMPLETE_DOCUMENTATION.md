@@ -227,25 +227,36 @@ assets/
 - Example: 1 crore deposit = 12 lakh/year
 
 **Signup With Referral Code**
-- User gets: **11% annually**
-- Referrer gets: **1% bonus** (of user's earnings)
-- Example: 1 crore deposit = 11 lakh/year (user) + 11,000/year (referrer)
+- The 12% base rate is **split** between you and your referrer:
+  - User gets: **11% annually** (11/12 of the base rate)
+  - Referrer gets: **1% annually** (1/12 of the base rate)
+- Example: 1 crore deposit = 11 lakh/year (user) + 1 lakh/year (referrer)
 
 **When You Refer Others**
 - Your referral gets: **11% annually**
-- You get: **1% bonus** (passive income on top of your deposit)
-- Example: Friend deposits 1 crore = they get 11 lakh/year, you get 11,000/year
+- You get: **1% annually** from the base 12% rate on their deposit (passive income on top of your own deposit)
+- Example: Friend deposits 1 crore = they get 11 lakh/year, you get 1 lakh/year
+
+### Key Points
+
+The 12% base interest rate is the platform's total payout. When a referral code is used:
+- **11%** goes to the depositor (the person who used the code)
+- **1%** goes to the referrer (the person whose code was used)
+- Total = **12%** (the full base rate is distributed)
+
+**Important:** The referrer's 1% comes from the platform's 12% base rate, NOT from the user's 11% earnings. This is a split of the base rate (1/12), not a bonus deducted from the user's portion.
 
 ### Messaging Rules
 
 ✅ **ALWAYS SAY:**
 - "12% if you sign up directly (without referral code)"
-- "11% if you use a referral code"
-- "Referrer earns 1% bonus from your earnings"
+- "11% if you use a referral code (the 12% is split: 11% to you + 1% to referrer)"
+- "Referrer earns 1% from the base rate on your deposit (1/12 of the total interest paid)"
 
 ❌ **NEVER SAY:**
-- Just "11%" without explaining when/why
-- "Up to 12%" without clarifying conditions
+- "Referrer gets 1% bonus from your earnings" (implies they get 1% of your 11%)
+- "11,000 Nexa bonus" when referring to 1 crore deposit (should be 1 lakh)
+- Just "11%" without explaining the split mechanism
 
 ## Visual Breakdown
 
@@ -265,11 +276,15 @@ SCENARIO 2: You Were Referred
 │  ↓                                   │
 │  You Deposit: 1 Crore Nexa           │
 │  ↓                                   │
-│  Your Rate: 11%                      │
-│  You Earn: 11,00,000 Nexa/year      │
+│  Base Rate Split:                    │
+│  - Your Share: 11% (11/12)          │
+│  - Alice's Share: 1% (1/12)         │
 │  ↓                                   │
-│  Alice Gets: 1% of your earnings     │
-│  Alice Earns: 11,000 Nexa/year      │
+│  You Earn: 11,00,000 Nexa/year      │
+│  Alice Earns: 1,00,000 Nexa/year    │
+│  ↓                                   │
+│  Total Paid by Platform: 12 lakh     │
+│  (12% of your 1 crore deposit)       │
 └──────────────────────────────────────┘
 
 SCENARIO 3: You Refer Someone
@@ -278,12 +293,16 @@ SCENARIO 3: You Refer Someone
 │  ↓                                   │
 │  Bob deposits: 1 Crore Nexa          │
 │  ↓                                   │
-│  Bob's Rate: 11%                     │
-│  Bob Earns: 11,00,000 Nexa/year     │
+│  Base Rate Split:                    │
+│  - Bob's Share: 11% (11/12)         │
+│  - Your Share: 1% (1/12)            │
 │  ↓                                   │
-│  You Get: 1% of Bob's earnings       │
-│  You Earn: 11,000 Nexa/year         │
+│  Bob Earns: 11,00,000 Nexa/year     │
+│  You Earn: 1,00,000 Nexa/year       │
 │  (PASSIVE INCOME!)                   │
+│  ↓                                   │
+│  Total Paid by Platform: 12 lakh     │
+│  (12% of Bob's 1 crore deposit)      │
 └──────────────────────────────────────┘
 ```
 
