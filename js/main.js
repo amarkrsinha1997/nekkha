@@ -517,6 +517,7 @@ class WhySlider {
     this.dotsContainer = document.getElementById("whyDots");
     this.prevBtn = document.querySelector(".why-nekka .slider-btn.prev");
     this.nextBtn = document.querySelector(".why-nekka .slider-btn.next");
+    this.sliderWrapper = document.querySelector(".why-slider-wrapper");
 
     if (!this.track) return;
 
@@ -524,9 +525,13 @@ class WhySlider {
     this.currentIndex = 0;
     this.cardsPerView = window.innerWidth >= 1024 ? 2 : 1;
     this.totalSlides = Math.ceil(this.cards.length / this.cardsPerView);
+    this.autoplayInterval = null;
+    this.autoplayDelay = 4000; // 4 seconds
+    this.isHovered = false;
 
     this.init();
     this.setupEventListeners();
+    this.startAutoplay();
   }
 
   init() {
@@ -550,14 +555,37 @@ class WhySlider {
     for (let i = 0; i < this.totalSlides; i++) {
       const dot = document.createElement("div");
       dot.className = `dot ${i === this.currentIndex ? "active" : ""}`;
-      dot.addEventListener("click", () => this.goToSlide(i));
+      dot.addEventListener("click", () => {
+        this.goToSlide(i);
+        this.resetAutoplay();
+      });
       this.dotsContainer.appendChild(dot);
     }
   }
 
   setupEventListeners() {
-    this.prevBtn?.addEventListener("click", () => this.prev());
-    this.nextBtn?.addEventListener("click", () => this.next());
+    this.prevBtn?.addEventListener("click", () => {
+      this.prev();
+      this.resetAutoplay();
+    });
+
+    this.nextBtn?.addEventListener("click", () => {
+      this.next();
+      this.resetAutoplay();
+    });
+
+    // Pause autoplay on hover
+    if (this.sliderWrapper) {
+      this.sliderWrapper.addEventListener("mouseenter", () => {
+        this.isHovered = true;
+        this.stopAutoplay();
+      });
+
+      this.sliderWrapper.addEventListener("mouseleave", () => {
+        this.isHovered = false;
+        this.startAutoplay();
+      });
+    }
 
     // Touch/swipe support
     let startX = 0;
@@ -566,6 +594,7 @@ class WhySlider {
     this.track.addEventListener("touchstart", (e) => {
       startX = e.touches[0].clientX;
       isDragging = true;
+      this.stopAutoplay();
     });
 
     this.track.addEventListener("touchmove", (e) => {
@@ -586,6 +615,7 @@ class WhySlider {
         }
       }
       isDragging = false;
+      this.resetAutoplay();
     });
   }
 
@@ -602,31 +632,54 @@ class WhySlider {
       dot.classList.toggle("active", index === this.currentIndex);
     });
 
-    // Update button states
+    // Update button states (always enabled for infinite loop)
     if (this.prevBtn) {
-      this.prevBtn.disabled = this.currentIndex === 0;
+      this.prevBtn.disabled = false;
     }
     if (this.nextBtn) {
-      this.nextBtn.disabled = this.currentIndex === this.totalSlides - 1;
+      this.nextBtn.disabled = false;
     }
   }
 
   goToSlide(index) {
-    this.currentIndex = Math.max(0, Math.min(index, this.totalSlides - 1));
+    this.currentIndex = index;
     this.updateSlider();
   }
 
   next() {
-    if (this.currentIndex < this.totalSlides - 1) {
-      this.currentIndex++;
-      this.updateSlider();
-    }
+    // Infinite loop: go back to start if at end
+    this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+    this.updateSlider();
   }
 
   prev() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-      this.updateSlider();
+    // Infinite loop: go to end if at start
+    this.currentIndex =
+      this.currentIndex === 0 ? this.totalSlides - 1 : this.currentIndex - 1;
+    this.updateSlider();
+  }
+
+  startAutoplay() {
+    if (this.autoplayInterval) return;
+
+    this.autoplayInterval = setInterval(() => {
+      if (!this.isHovered) {
+        this.next();
+      }
+    }, this.autoplayDelay);
+  }
+
+  stopAutoplay() {
+    if (this.autoplayInterval) {
+      clearInterval(this.autoplayInterval);
+      this.autoplayInterval = null;
+    }
+  }
+
+  resetAutoplay() {
+    this.stopAutoplay();
+    if (!this.isHovered) {
+      this.startAutoplay();
     }
   }
 }

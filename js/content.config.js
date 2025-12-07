@@ -306,20 +306,47 @@ const CONTENT_CONFIG = {
         imageAlt: "Historical gold coins and precious metals",
       },
       {
+        id: "early-banking",
+        era: "1600s - 1800s",
+        title: "Early Banking Systems",
+        description:
+          "The first banks emerged in Europe, offering basic deposit services. Merchants and nobility stored wealth in vaults, but banking was reserved for the elite with minimal interest earnings.",
+        image: "assets/images/early-banking.jpg",
+        imageAlt: "Early European banking institutions",
+      },
+      {
         id: "traditional-banking",
-        era: "1900s - 2000s",
+        era: "1900s - 1970s",
         title: "Traditional Fixed Deposits",
         description:
-          "Banks introduced FDs - deposit money, earn fixed interest. Revolutionary for savers, but limited by geography, inflation, and low returns.",
+          "Banks introduced FDs for the masses - deposit money, earn fixed interest. Revolutionary for savers, but limited by geography, inflation, and low returns typically 3-5% annually.",
         image: "assets/images/traditional-bank.jpg",
         imageAlt: "Traditional banking and fixed deposits",
+      },
+      {
+        id: "digital-banking",
+        era: "1980s - 2000s",
+        title: "Digital Banking Era",
+        description:
+          "ATMs, online banking, and digital transactions transformed finance. Interest rates remained low (1-4%), and banks still controlled your money. Convenience improved, but returns didn't.",
+        image: "assets/images/digital-banking.jpg",
+        imageAlt: "Digital banking and online transactions",
+      },
+      {
+        id: "cryptocurrency",
+        era: "2009 - 2020",
+        title: "Cryptocurrency Emergence",
+        description:
+          "Bitcoin introduced decentralized money. People could own and control their assets without banks. Early adopters saw massive returns, but no structured deposit systems existed yet.",
+        image: "assets/images/cryptocurrency.jpg",
+        imageAlt: "Bitcoin and early cryptocurrency",
       },
       {
         id: "defi",
         era: "2020s - Present",
         title: "DeFi Revolution",
         description:
-          "Cryptocurrency fixed deposits combine the best of all eras - the security of gold, liquidity of modern banking, with blockchain transparency and higher returns.",
+          "Cryptocurrency fixed deposits combine the best of all eras - the security of gold, liquidity of modern banking, with blockchain transparency and higher returns (8-12% annually).",
         image: "assets/images/crypto-defi.jpg",
         imageAlt: "Modern cryptocurrency and DeFi platforms",
       },
