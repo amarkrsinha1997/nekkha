@@ -342,6 +342,32 @@ class AnimationObserver {
   }
 }
 
+// Helper function to initialize timeline animations
+function initTimelineAnimations() {
+  const options = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-in");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  const timelineItems = document.querySelectorAll(".timeline-item");
+
+  timelineItems.forEach((el) => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(30px)";
+    el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+    observer.observe(el);
+  });
+}
+
 // ===========================
 // Parallax Effect
 // ===========================
@@ -505,6 +531,9 @@ function loadEvolutionSection() {
     `;
     })
     .join("");
+
+  // Re-initialize animation observer for timeline items
+  initTimelineAnimations();
 }
 
 // ===========================
