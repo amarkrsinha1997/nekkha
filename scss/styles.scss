@@ -650,6 +650,60 @@ body {
     padding: $section-padding-mobile 0;
   }
   
+  .rate-clarity-box {
+    background: linear-gradient(135deg, rgba(5, 7, 10, 0.6), rgba(5, 7, 10, 0.8));
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    
+    h3 {
+      color: $vibrant-yellow;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .rate-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .rate-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+    
+    .rate-number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: $vibrant-yellow;
+      margin-bottom: 0.5rem;
+    }
+    
+    .rate-label {
+      color: $white;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    
+    .rate-description {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+    
+    .rate-example {
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+    }
+  }
+  
   &-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

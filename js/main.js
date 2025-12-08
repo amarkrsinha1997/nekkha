@@ -710,17 +710,32 @@ class I18n {
   }
 
   loadHowItWorksSection(content) {
-    const { howItWorksSection } = content;
-    if (!howItWorksSection || !howItWorksSection.requirements) return;
+    const { howItWorks, howItWorksSection } = content;
 
-    const requirementItems = document.querySelectorAll(
-      ".requirement-item span"
-    );
-    howItWorksSection.requirements.forEach((req, index) => {
-      if (requirementItems[index]) {
-        requirementItems[index].textContent = req;
-      }
-    });
+    // Load steps
+    if (howItWorks) {
+      const steps = document.querySelectorAll(".step");
+      howItWorks.forEach((stepData, index) => {
+        if (steps[index]) {
+          const title = steps[index].querySelector(".step-content h3");
+          const description = steps[index].querySelector(".step-content p");
+          if (title) title.textContent = stepData.title;
+          if (description) description.textContent = stepData.description;
+        }
+      });
+    }
+
+    // Load requirements
+    if (howItWorksSection && howItWorksSection.requirements) {
+      const requirementItems = document.querySelectorAll(
+        ".requirement-item span"
+      );
+      howItWorksSection.requirements.forEach((req, index) => {
+        if (requirementItems[index]) {
+          requirementItems[index].textContent = req;
+        }
+      });
+    }
   }
 
   loadFAQSection(content) {
@@ -740,17 +755,43 @@ class I18n {
 
   loadAboutSection(content) {
     const { about } = content;
-    if (!about || !about.values || !about.values.list) return;
+    if (!about) return;
 
-    const valuesList = document.querySelector(".values-list");
-    if (valuesList) {
-      valuesList.innerHTML = about.values.list
-        .map(
-          (value) => `
-        <li><strong>${value.key}:</strong> ${value.description}</li>
-      `
-        )
-        .join("");
+    // Load mission paragraphs
+    if (about.mission && about.mission.paragraphs) {
+      const missionParagraphs = document.querySelectorAll(".about-text p");
+      about.mission.paragraphs.forEach((paragraph, index) => {
+        if (missionParagraphs[index]) {
+          missionParagraphs[index].textContent = paragraph;
+        }
+      });
+    }
+
+    // Load values list
+    if (about.values && about.values.list) {
+      const valuesList = document.querySelector(".values-list");
+      if (valuesList) {
+        valuesList.innerHTML = about.values.list
+          .map(
+            (value) => `
+          <li><strong>${value.key}:</strong> ${value.description}</li>
+        `
+          )
+          .join("");
+      }
+    }
+
+    // Load stats
+    if (about.stats) {
+      const statCards = document.querySelectorAll(".about-stats .stat-card");
+      about.stats.forEach((stat, index) => {
+        if (statCards[index]) {
+          const statNumber = statCards[index].querySelector("h4");
+          const statLabel = statCards[index].querySelector("p");
+          if (statNumber) statNumber.textContent = stat.number;
+          if (statLabel) statLabel.textContent = stat.label;
+        }
+      });
     }
   }
 
