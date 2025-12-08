@@ -1,7 +1,7 @@
 # Nekkha.com - Complete Documentation
-**Last Updated:** December 7, 2025 | **Version:** 2.2 | **Status:** Production Ready
+**Last Updated:** December 8, 2025 | **Version:** 3.0 | **Status:** Production Ready with Multi-Language Support
 
-> **🆕 NEW:** All content now centralized in `content.config.js` - Ready for instant multi-language support!
+> **🆕 NEW:** Runtime language switching implemented! Switch between English and Hindi instantly with the language toggle in the navbar.
 
 ---
 
@@ -9,11 +9,11 @@
 
 1. [Quick Start Guide](#quick-start-guide)
 2. [Project Overview](#project-overview)
-3. [Master TODO & Pre-Launch Checklist](#master-todo--pre-launch-checklist)
-4. [Interest Rate Structure](#interest-rate-structure)
-5. [Content Management & Updates](#content-management--updates)
-6. [Internationalization (i18n)](#internationalization-i18n)
-7. [i18n Implementation Guide](#i18n-implementation-guide) ⭐ NEW
+3. [Language Switching Feature](#language-switching-feature) 🆕
+4. [Master TODO & Pre-Launch Checklist](#master-todo--pre-launch-checklist)
+5. [Interest Rate Structure](#interest-rate-structure)
+6. [Content Management & Updates](#content-management--updates)
+7. [Multi-Language Implementation](#multi-language-implementation) 🆕
 8. [Commands Reference](#commands-reference)
 9. [Action Items & Link Updates](#action-items--link-updates)
 10. [Image Requirements](#image-requirements)
@@ -86,18 +86,20 @@ Nekkha.com/
 ### Features Implemented
 - ✅ Animated starfield background
 - ✅ Sticky navigation with scroll effect
+- ✅ **Runtime language switching (English ⇄ Hindi)** 🆕
 - ✅ Mobile responsive menu
 - ✅ Hero section with stats
 - ✅ Features section (6 feature cards)
-- ✅ Evolution timeline (4 stages with animations)
-- ✅ Why Nekkha section (6 benefit cards)
+- ✅ Evolution timeline (7 stages with animations)
+- ✅ Why Nekkha slider (6 benefit cards)
 - ✅ How It Works (3-step process)
-- ✅ FAQ accordion (8 questions)
+- ✅ FAQ accordion (5 questions)
 - ✅ Contact buttons with Font Awesome icons
 - ✅ About section
 - ✅ Footer with Nexa ecosystem links
 - ✅ Back to top button
 - ✅ Smooth scrolling
+- ✅ **All content dynamically rendered from config** 🆕
 - ✅ SEO optimization
 - ✅ Accessibility (WCAG 2.1 AA)
 - ✅ Responsive design (mobile, tablet, desktop)
@@ -121,6 +123,114 @@ Nekkha.com is a decentralized finance (DeFi) platform that provides Fixed Deposi
 
 ### Etymology
 **Nekkha (नेक्ख)** - In the time of the Buddha, gold was called "Nekkha" in Pali. Today, we honor this ancient wisdom by helping you grow your digital gold.
+
+---
+
+# Language Switching Feature
+
+## 🌐 Runtime Language Switching (NEW!)
+
+The website now supports **instant language switching** between English and Hindi without page reload!
+
+### Using the Language Switcher
+
+1. **Locate the globe icon (🌐)** in the navigation bar
+2. **Desktop:** Hover over the icon to see language options
+3. **Mobile:** Tap the icon to open the dropdown
+4. **Select your language:**
+   - 🇬🇧 English
+   - 🇮🇳 हिन्दी (Hindi)
+
+### What Changes When You Switch
+
+**Everything** updates instantly:
+- ✅ Navigation menu and buttons
+- ✅ Hero section (title, subtitle, stats, CTAs)
+- ✅ All 6 feature cards
+- ✅ Complete evolution timeline (7 historical eras)
+- ✅ Why Nekkha benefits slider (6 cards)
+- ✅ How It Works steps and requirements
+- ✅ FAQ questions and answers
+- ✅ Contact section labels
+- ✅ About section (mission, values, stats)
+- ✅ Footer (all links, newsletter, copyright)
+
+### Language Persistence
+
+Your language choice is **automatically saved**:
+- ✅ Persists across page refreshes
+- ✅ Persists across browser sessions
+- ✅ Per device/browser preference
+- ✅ No cookies needed (uses localStorage)
+
+### Technical Details
+
+```javascript
+// Language stored in browser:
+localStorage.setItem('nekkhaSiteLang', 'en' | 'hi')
+
+// HTML lang attribute updates automatically:
+<html lang="en"> → <html lang="hi">
+
+// Content loaded from:
+js/content.config.js  (English - 500+ lines)
+js/content.hi.js      (Hindi - 700+ lines)
+```
+
+### How It Works Internally
+
+1. Page loads with default English config
+2. `initLanguage()` checks localStorage for saved preference
+3. If Hindi was previously selected:
+   - Loads `content.hi.js` dynamically
+   - Waits for script to load
+   - Calls `rerenderContent()` to update all sections
+4. When user switches language:
+   - Saves choice to localStorage
+   - Loads new config file
+   - Re-renders entire page with new language
+   - Updates `html[lang]` attribute
+
+### Adding More Languages
+
+The system is ready for additional languages:
+
+**To add Bengali:**
+1. Copy `js/content.hi.js` → `js/content.bn.js`
+2. Translate all string values (keep structure identical)
+3. Add Bengali option to language dropdown in `index.html`
+4. That's it! The system handles the rest.
+
+**Same process for:**
+- Nepali (`js/content.ne.js`)
+- Any other language
+
+### Key Files
+
+```
+js/
+├── content.config.js    # English (master template)
+├── content.hi.js        # Hindi translation
+├── content.bn.js        # Bengali (future)
+├── content.ne.js        # Nepali (future)
+└── main.js              # Language switching logic
+```
+
+### Testing Language Switching
+
+```bash
+# 1. Start dev server
+npm run dev
+
+# 2. Open in browser
+http://localhost:3000
+
+# 3. Click globe icon in navbar
+# 4. Select हिन्दी
+# 5. Entire page updates to Hindi!
+# 6. Refresh page - Hindi persists
+# 7. Switch back to English - instant update
+```
 
 ### Key Features
 
@@ -407,24 +517,175 @@ evolution: {
 
 ---
 
-# Internationalization (i18n)
+# Multi-Language Implementation
 
-## 🌍 Multi-Language Support
+## ✅ Implementation Complete!
 
-### Option 1: Browser Translation (Currently Enabled)
+The website now has **full runtime language switching** implemented and working!
 
-The website works with browser-based translation tools like Google Chrome's automatic translation.
+### What's Live Now
 
-**How it works:**
-- Users can use Chrome's "Translate this page" feature
-- Right-click → Translate to [Language]
-- Supports 100+ languages automatically
+✅ **Language Switcher UI** - Globe icon (🌐) in navbar  
+✅ **Instant Switching** - No page reload needed  
+✅ **Two Languages** - English & Hindi fully translated  
+✅ **Auto-Save** - Language preference persists via localStorage  
+✅ **All Content Dynamic** - Every section renders from config files  
 
-### Option 2: Manual Translation Files
+### How to Use
 
-Create language-specific configuration files:
+**For Users:**
+1. Click the globe icon in the navbar
+2. Select English or हिन्दी
+3. Page updates instantly
+4. Your choice is saved automatically
 
-**Example:** `js/content.hi.js` (Hindi)
+**For Developers:**
+All content is in configuration files:
+- `js/content.config.js` - English (master template)
+- `js/content.hi.js` - Hindi translation
+
+### Content Coverage
+
+**Everything** is translated and switchable:
+- Navigation menu (7 links + 2 CTAs)
+- Hero section (etymology, title, subtitle, 3 stats, 2 CTAs)
+- Features section (headers + rate clarity + 6 cards)
+- Evolution timeline (headers + 7 historical eras)
+- Why Nekkha slider (headers + 6 benefit cards)
+- How It Works (headers + 3 steps + 4 requirements)
+- FAQ section (headers + 5 Q&A pairs)
+- Contact section (headers + 3 contact methods + social links)
+- About section (headers + mission + values + 4 stats)
+- Footer (tagline + 4 columns + newsletter + copyright)
+
+### Adding New Languages
+
+To add Bengali, Nepali, or any other language:
+
+**Step 1:** Copy the English config
+```bash
+cp js/content.config.js js/content.bn.js  # Bengali
+cp js/content.config.js js/content.ne.js  # Nepali
+```
+
+**Step 2:** Translate all string values
+```javascript
+// js/content.bn.js
+const CONTENT_CONFIG = {
+  site: {
+    name: "নেক্খা",  // Translate
+    tagline: "ডিজিটাল সোনা...",  // Translate
+    language: "bn",  // Update language code
+  },
+  // ... translate all other strings
+  // Keep structure identical!
+}
+```
+
+**Step 3:** Add to language dropdown in `index.html`
+```html
+<div class="lang-dropdown">
+  <a href="#" class="lang-option active" data-lang="en">
+    <span class="lang-flag">🇬🇧</span>
+    <span>English</span>
+  </a>
+  <a href="#" class="lang-option" data-lang="hi">
+    <span class="lang-flag">🇮🇳</span>
+    <span>हिन्दी</span>
+  </a>
+  <!-- Add new language -->
+  <a href="#" class="lang-option" data-lang="bn">
+    <span class="lang-flag">🇧🇩</span>
+    <span>বাংলা</span>
+  </a>
+</div>
+```
+
+**That's it!** The system handles the rest automatically.
+
+### Technical Architecture
+
+**Files Structure:**
+```
+js/
+├── content.config.js    # English (500+ lines)
+├── content.hi.js        # Hindi (700+ lines)
+├── content.bn.js        # Bengali (future)
+├── content.ne.js        # Nepali (future)
+└── main.js              # Render functions + language logic
+```
+
+**Key Functions in `main.js`:**
+- `initLanguage()` - Checks localStorage, loads saved language
+- `switchLanguage(lang)` - Switches language, saves preference
+- `loadLanguageConfig(lang)` - Dynamically loads config file
+- `rerenderContent()` - Re-renders all sections
+- `loadNavigation()` - Renders navbar
+- `loadHero()` - Renders hero section
+- `loadFeaturesSection()` - Renders features
+- `loadEvolutionSection()` - Renders timeline
+- `loadWhyNekkhaSection()` - Renders slider
+- `loadHowItWorksSection()` - Renders steps
+- `loadFAQSection()` - Renders FAQ
+- `loadContactSection()` - Renders contact
+- `loadAboutSection()` - Renders about
+- `loadFooter()` - Renders footer
+
+### Build System
+
+**Development:**
+```bash
+npm run dev  # SCSS watcher + dev server
+```
+
+**Production:**
+```bash
+npm run build         # Build CSS + JS
+npm run build:js      # Build both language bundles
+npm run build:js:en   # Build English bundle
+npm run build:js:hi   # Build Hindi bundle
+```
+
+**Output:**
+```
+dist/
+├── main.en.js    # English bundle (minified)
+└── main.hi.js    # Hindi bundle (minified)
+```
+
+### SEO Considerations
+
+**Current Implementation:**
+- HTML `lang` attribute updates dynamically
+- Meta tags are static (in HTML)
+- Content is client-side rendered
+
+**For Better SEO:**
+Consider generating separate HTML files per language:
+- `index.html` (English)
+- `hi/index.html` (Hindi)
+- `bn/index.html` (Bengali)
+- Add `<link rel="alternate" hreflang="hi" href="/hi/">`
+
+Or use server-side rendering to serve language-specific HTML.
+
+### Testing Language Switching
+
+```bash
+# Start dev server
+npm run dev
+
+# Open browser
+http://localhost:3000
+
+# Test switching:
+1. Click globe icon (🌐)
+2. Select हिन्दी
+3. Verify all content changes
+4. Refresh page - Hindi persists
+5. Switch back to English
+6. Verify localStorage saves choice
+```
 
 ```javascript
 const CONTENT_CONFIG_HI = {
@@ -1178,7 +1439,47 @@ $breakpoint-2xl: 1440px; // Large desktop
 
 # Recent Updates
 
-## December 7, 2025 - Latest Changes
+## December 8, 2025 - Major Feature Release 🚀
+
+### 1. Runtime Language Switching Implemented! ✅
+- **Complete multi-language system live**
+- Instant switching between English and Hindi
+- No page reload required
+- Language preference saved in localStorage
+- Globe icon (🌐) in navbar for easy access
+- All 700+ lines of content dynamically rendered
+- Mobile and desktop responsive
+
+### 2. Full Content Centralization ✅
+- **Every section now loads from config files**
+- 10+ render functions in `main.js`:
+  - `loadNavigation()` - Navbar links and CTAs
+  - `loadHero()` - Hero section with etymology
+  - `loadFeaturesSection()` - Features + rate clarity
+  - `loadEvolutionSection()` - Timeline (7 eras)
+  - `loadWhyNekkhaSection()` - Benefits slider (6 cards)
+  - `loadHowItWorksSection()` - Steps + requirements
+  - `loadFAQSection()` - FAQ items
+  - `loadContactSection()` - Contact info
+  - `loadAboutSection()` - Mission, values, stats
+  - `loadFooter()` - All footer content
+- Update content in one place, reflects everywhere
+
+### 3. Build System Enhanced ✅
+- Added `esbuild` for JavaScript bundling
+- New build scripts:
+  - `npm run build:js` - Build both language bundles
+  - `npm run build:js:en` - English bundle
+  - `npm run build:js:hi` - Hindi bundle
+- Output: `dist/main.en.js`, `dist/main.hi.js`
+
+### 4. Language Files Complete ✅
+- `js/content.config.js` - English (500+ lines)
+- `js/content.hi.js` - Hindi (700+ lines)
+- Identical schema across both files
+- Ready to add Bengali and Nepali
+
+## December 7, 2025 - Previous Updates
 
 ### 1. Why Nekkha Section Now a Slider ✅
 - **Converted static grid to responsive slider**
@@ -1189,12 +1490,13 @@ $breakpoint-2xl: 1440px; // Large desktop
   - Dot indicators for slide position
   - Touch/swipe support on mobile
   - Smooth transitions
-  - Auto-disables buttons at start/end
+  - Infinite loop
 
-### 2. Evolution Timeline Now Dynamic ✅
-- **Timeline content loads from `content.config.js`**
+### 2. Evolution Timeline Expanded ✅
+- **Extended from 4 to 7 historical eras**
+- Added: Early Banking, Digital Banking, Cryptocurrency
+- Timeline content loads from `content.config.js`
 - No more hardcoded text in HTML
-- Update timeline by editing config file only
 - Fixed timeline-year visibility (now shows above dots)
 
 ### 2. Timeline Year Visibility Fixed ✅
@@ -1292,8 +1594,9 @@ referralBonus: 1,
 
 ## If You Need Help With:
 
+- **Language switching** → See [Language Switching Feature](#language-switching-feature)
+- **Adding translations** → See [Multi-Language Implementation](#multi-language-implementation)
 - **Content updates** → See [Content Management & Updates](#content-management--updates)
-- **Translations** → See [Internationalization (i18n)](#internationalization-i18n)
 - **Commands** → See [Commands Reference](#commands-reference)
 - **Images** → See [Image Requirements](#image-requirements)
 - **Design** → See [Design Specifications](#design-specifications)
@@ -1328,6 +1631,7 @@ Press F12 → Device toolbar (Cmd/Ctrl + Shift + M)
 - [ ] Favicon and PWA icons added
 - [ ] Test on Chrome, Firefox, Safari
 - [ ] Test on mobile device (iOS & Android)
+- [ ] **Test language switching** (EN ⇄ HI)
 - [ ] Run Lighthouse audit (90+ all scores)
 - [ ] Verify all links work
 - [ ] No console errors
@@ -1339,9 +1643,44 @@ Press F12 → Device toolbar (Cmd/Ctrl + Shift + M)
 
 **End of Complete Documentation**
 
-*This file consolidates all project documentation into a single, searchable reference. For the most up-to-date information, always refer to this file first.*
+*This is the **single source of truth** for all Nekkha.com documentation. Everything you need to know is in this file.*
 
-**Version:** 2.0  
-**Last Updated:** December 7, 2025  
-**Status:** Production Ready - Awaiting Content & Launch
+## 🎉 What's New in V3.0
+
+✅ **Runtime language switching** - Instant EN ⇄ HI toggle  
+✅ **Full content centralization** - All text in config files  
+✅ **10+ dynamic render functions** - Every section auto-renders  
+✅ **Build system** - esbuild for JS bundling  
+✅ **Ready for expansion** - Add Bengali/Nepali easily  
+
+## 📊 Current Stats
+
+- **Lines of Config:** 1,200+ (across EN & HI)
+- **Dynamic Sections:** 10 (all major sections)
+- **Supported Languages:** 2 (EN, HI)
+- **Ready Languages:** 2 more (BN, NE)
+- **Build Scripts:** 4 (SCSS + 3 JS bundles)
+
+## 🚀 Quick Actions
+
+```bash
+# Test language switching
+npm run dev
+# Visit http://localhost:3000
+# Click 🌐 → Select हिन्दी
+
+# Add a new language
+cp js/content.config.js js/content.bn.js
+# Translate strings, add to dropdown
+
+# Build for production
+npm run build
+```
+
+---
+
+**Version:** 3.0  
+**Last Updated:** December 8, 2025  
+**Status:** Production Ready with Multi-Language Support ✨
+
 

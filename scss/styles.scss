@@ -247,6 +247,105 @@ body {
       }
     }
     
+    .nav-language {
+      position: relative;
+      margin-left: $spacing-xs;
+      
+      .lang-toggle-btn {
+        background: none;
+        border: none;
+        color: $text-secondary;
+        cursor: pointer;
+        padding: $spacing-xs;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color $transition-fast;
+        
+        &:hover {
+          color: $white;
+        }
+        
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      
+      .lang-dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        background: rgba($deep-black, 0.98);
+        border: 1px solid rgba($white, 0.1);
+        border-radius: 8px;
+        padding: $spacing-xs;
+        min-width: 150px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all $transition-base;
+        z-index: $z-index-dropdown;
+        
+        &.show {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+        
+        .lang-option {
+          display: flex;
+          align-items: center;
+          gap: $spacing-xs;
+          padding: $spacing-xs $spacing-sm;
+          color: $text-secondary;
+          text-decoration: none;
+          border-radius: 4px;
+          transition: all $transition-fast;
+          cursor: pointer;
+          
+          .lang-flag {
+            font-size: 1.2em;
+          }
+          
+          &:hover {
+            background: rgba($white, 0.05);
+            color: $white;
+          }
+          
+          &.active {
+            background: rgba($vibrant-yellow, 0.1);
+            color: $vibrant-yellow;
+          }
+        }
+      }
+      
+      &:hover .lang-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      
+      @include respond-below('lg') {
+        margin-left: 0;
+        width: 100%;
+        
+        .lang-toggle-btn {
+          width: 100%;
+          justify-content: flex-start;
+          padding: $spacing-sm;
+        }
+        
+        .lang-dropdown {
+          position: static;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          margin-top: $spacing-xs;
+        }
+      }
+    }
+    
     @include respond-below('lg') {
       position: absolute;
       top: 100%;

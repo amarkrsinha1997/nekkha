@@ -1,16 +1,10 @@
 /**
- * Nekkha.com Content Configuration
+ * Nekkha.com Content Configuration - English (Default)
  *
- * Centralized content management for easy updates and future i18n support.
- * Update values here instead of directly in HTML.
- *
- * For multi-language support:
- * - Structure is ready for i18n libraries (i18next, vue-i18n, etc.)
- * - Or use browser's built-in translation (add lang="en" to <html>)
- * - Future: Add content.hi.js, content.bn.js, content.ne.js for Hindi, Bengali, Nepali
+ * Centralized content management for i18n support.
  */
 
-const CONTENT_CONFIG = {
+const content_en = {
   // ===========================
   // SITE METADATA
   // ===========================
@@ -20,6 +14,44 @@ const CONTENT_CONFIG = {
     domain: "nekkha.com",
     language: "en",
     supportedLanguages: ["en", "hi", "bn", "ne"], // English, Hindi, Bengali, Nepali
+  },
+
+  // ===========================
+  // META TAGS
+  // ===========================
+  meta: {
+    title:
+      "Nekkha.com - Earn Up To 12% Interest on Your Nexa | Crypto Fixed Deposits",
+    description:
+      "Earn up to 12% annual interest on Nexa deposits. Secure DeFi fixed deposits with transparent terms and no hidden fees. Start earning today.",
+    keywords:
+      "Nexa FD, crypto fixed deposit, DeFi savings, earn Nexa, cryptocurrency interest, Nexa investment, passive crypto income, decentralized finance, Nexa staking, crypto earnings",
+    ogTitle: "Nekkha.com - Earn Up To 12% Interest on Your Nexa",
+    ogDescription:
+      "Earn up to 12% annual interest on secure DeFi fixed deposits. Transparent, reliable, and powered by blockchain technology.",
+    twitterTitle: "Nekkha.com - Earn Up To 12% Interest on Your Nexa",
+    twitterDescription:
+      "Earn up to 12% annual interest on secure DeFi fixed deposits. Transparent, reliable, and powered by blockchain technology.",
+  },
+
+  // ===========================
+  // NAVIGATION
+  // ===========================
+  navigation: {
+    logo: "NEKKHA",
+    links: [
+      { text: "Features", href: "#features" },
+      { text: "Evolution", href: "#evolution" },
+      { text: "Why Nekkha", href: "#why-Nekkha" },
+      { text: "How It Works", href: "#how-it-works" },
+      { text: "FAQ", href: "#faq" },
+      { text: "Contact", href: "#contact" },
+    ],
+    cta: {
+      login: { text: "Login", href: "#webapp-login" },
+      signup: { text: "Get Started", href: "#webapp-signup" },
+    },
+    languageLabel: "Language",
   },
 
   // ===========================
@@ -109,6 +141,9 @@ const CONTENT_CONFIG = {
   // HERO SECTION CONTENT
   // ===========================
   hero: {
+    etymologyLabel: "नेक्ख (Nekkha)",
+    etymologyText:
+      "Ancient Pali word for gold from the Buddha's era, reimagined for the digital age.",
     title: {
       highlight: "Earn Up To 12% Interest",
       main: "on Your Nexa Deposits",
@@ -134,8 +169,23 @@ const CONTENT_CONFIG = {
     ],
     cta: {
       primary: "Start Earning Today",
-      secondary: "Learn How It Works",
+      secondary: "Learn More",
     },
+  },
+
+  // ===========================
+  // FEATURES SECTION
+  // ===========================
+  featuresSection: {
+    sectionTitle: "Why Choose Nekkha",
+    sectionSubtitle:
+      "Experience the future of fixed deposits with cryptocurrency",
+    rateClarityTitle: "Simple Interest Breakdown",
+    rateClarityRate: "Up to 12%",
+    rateClarityLabel: "Annual Interest Rate",
+    rateClarityDescription: "Earn consistently every year",
+    rateClarityExample:
+      "If you deposit 1 crore Nexa, you can earn up to 12 lakh Nexa per year. Simple, transparent, and reliable returns.",
   },
 
   // ===========================
@@ -461,7 +511,12 @@ const CONTENT_CONFIG = {
   // ===========================
   contactSection: {
     title: "Get in Touch",
+    subtitle: "Have questions? We're here to help",
     description: "Choose your preferred way to reach us. We're here to help!",
+    whatsappLabel: "WhatsApp",
+    whatsappText: "Chat with us instantly",
+    phoneLabel: "Phone",
+    emailLabel: "Email",
     socialTitle: "Follow Us",
   },
 
@@ -471,14 +526,21 @@ const CONTENT_CONFIG = {
   footer: {
     tagline: "Building the future of decentralized finance",
     description:
-      "Earn up to 12% annual interest on your Nexa deposits. Secure, transparent, and powered by blockchain technology.",
+      "Empowering financial freedom through decentralized fixed deposits on the Nexa blockchain.",
+    quickLinksTitle: "Quick Links",
+    quickLinks: [
+      { name: "Features", url: "#features" },
+      { name: "How It Works", url: "#how-it-works" },
+      { name: "FAQ", url: "#faq" },
+      { name: "About Us", url: "#about" },
+    ],
     ecosystemTitle: "Nexa Ecosystem",
     ecosystemLinks: [
-      { name: "Nexa.cafe", url: "https://nexa.cafe" },
-      { name: "Nexa.land", url: "https://nexa.land" },
-      { name: "Nexa.house", url: "https://nexa.house" },
-      { name: "Nexa.training", url: "https://nexa.training" },
-      { name: "Nexa.institute", url: "https://nexa.institute" },
+      { name: "Nexa Cafe", url: "https://nexa.cafe" },
+      { name: "Nexa Land", url: "https://nexa.land" },
+      { name: "Nexa House", url: "https://nexa.house" },
+      { name: "Nexa Training", url: "https://nexa.training" },
+      { name: "Nexa Institute", url: "https://nexa.institute" },
     ],
     legalTitle: "Legal",
     legalLinks: [
@@ -487,11 +549,20 @@ const CONTENT_CONFIG = {
       { name: "Risk Disclosure", url: "#risk" },
       { name: "Compliance", url: "#compliance" },
     ],
+    newsletterTitle: "Newsletter",
+    newsletterDescription: "Stay updated with the latest news and offers",
+    newsletterPlaceholder: "Your email",
+    newsletterButton: "Subscribe",
     copyright: `© ${new Date().getFullYear()} Nekkha.com. All rights reserved.`,
   },
 };
 
-// Export for use in HTML or bundler
+// Export to window for i18n system
+if (typeof window !== "undefined") {
+  window.content_en = content_en;
+}
+
+// Export for bundler
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = CONTENT_CONFIG;
+  module.exports = content_en;
 }
