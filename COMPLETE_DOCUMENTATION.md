@@ -1,7 +1,9 @@
 # Nekkha.com - Complete Documentation
-**Last Updated:** December 8, 2025 | **Version:** 3.0 | **Status:** Production Ready with Multi-Language Support
+**Last Updated:** December 9, 2025 | **Version:** 3.1 | **Status:** Production Ready with Multi-Language Support
 
 > **🆕 NEW:** Runtime language switching implemented! Switch between English and Hindi instantly with the language toggle in the navbar.
+
+> **📌 NOTE:** Nexa's official repository is hosted on GitLab at https://gitlab.com/nexa
 
 ---
 
